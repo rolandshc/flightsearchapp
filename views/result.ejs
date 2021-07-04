@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Flight Searching Tool</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <p>Searching Result (sorted by journey time)</p>
+  <table border="1">
+    <colgroup span="20">
+      <% if(Object.keys(flightData)!=0){ var j=1; var flight="Flight (" + j + ")" ;
+        flightData[0].flight.edges.forEach(function(edge){ %>
+        <th colspan="9">
+          <%= flight %>
+        </th>
+        <% j++; flight="Flight (" + j + ")" ; })} %>
+    <tr></tr>
+    <% if(Object.keys(flightData)!=0){ flightData[0].flight.edges.forEach(function(edge){ %>
+      <th>FROM</th>
+      <th>TO</th>
+      <th>Year</th>
+      <th>Month</th>
+      <th>Day</th>
+      <th>Departure Time</th>
+      <th>Arrival Time</th>
+      <th> Carrier</th>
+      <th>Flight Number</th>
+      <% })} %>
+        <th colspan="1">Flight Time (minutes)</th>
+        </colgroup>
+        <% if(Object.keys(flightData)!=0){ var i=1; var depTime=1; var arrTime=1; flightData.forEach(function(data){ %>
+          <tr>
+            <% data.flight.edges.forEach(function(edge){ %>
+              <td>
+                <%= edge._from %>
+              </td>
+              <td>
+                <%= edge._to %>
+              </td>
+              <td>
+                <%= edge.Year %>
+              </td>
+              <td>
+                <%= edge.Month %>
+              </td>
+              <td>
+                <%= edge.Day %>
+              </td>
+              <td>
+                <%= edge.DepTime %>
+              </td>
+              <td>
+                <%= edge.ArrTime %>
+              </td>
+              <td>
+                <%= edge.UniqueCarrier %>
+              </td>
+              <td>
+                <%= edge.FlightNum %>
+              </td>
+              <% }) %>
+                <td>
+                  <%=data.time %>
+                </td>
+          </tr>
+          <% i++; }) %>
+            <% } else{ %>
+              <tr>
+                <td colspan="7">No Data Found</td>
+              </tr>
+              <% } %>
+  </table>
+  <br />
+  <button onclick="goBack()">Go Back</button>
+
+  <script>
+    function goBack() {
+      window.history.back();
+    }
+  </script>
+</body>
+
+</html>

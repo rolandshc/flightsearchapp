@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Flight Searching Tool</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <p>Welcome!</p>
+  <h1>Search your flight:</h1>
+  <form action="/result" method="GET">
+    <label>From Airport: </label>
+    <select class="from" name="from">
+      <% for(var i=0; i < airports.length; i++){ %>
+        <option>
+          <%= airports[i].replace("airports/","") %>
+        </option>
+        <% } %>
+    </select>
+    <label>To Airport: </label>
+    <select class="to" name="to">
+      <% for(var i=0; i < airports.length; i++){ %>
+        <option>
+          <%= airports[i].replace("airports/","") %>
+        </option>
+        <% } %>
+    </select>
+    <label>Date: </label>
+    <input type="date" id="date" name="date" value="2008-01-01">
+    <br />
+    <input type="submit" value="SEARCH" />
+  </form>
+</body>
+
+</html>
