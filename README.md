@@ -8,9 +8,12 @@ The aim is to find the fastest route from a departure airport to a destination a
 In this implementation, the specific day is determined by the local datetime of the departure datetime of the first flight.
 This means that the arrival date can be different eg. the next day.
 
-Install Docker if there is no.
+This project runs arangodb on docker. The node app itself can be installed on local machine.
+For switching the node app to run on docker or local, the database and localhost parameters have to be configured. (in ```DataService.js```)
 
 ## Install instruction
+
+Install Docker if there is no.
 
 1. Download the projcet folder
 2. In Shell, cd project directory
@@ -53,7 +56,7 @@ curl -X POST http://localhost:3000/api -H "Content-Type: application/json" -d '{
 
 ## FAA DELAY AIRPORT API
 
-There is a getDelay function implemented in the DataServices.js.
+There is a ```getDelay()``` function implemented in the ```DataServices.js```.
 
 It can be further integrated with the api.js by reading the delay of the airports by finding alternative routes due to serious delay, requery to find a route to nearest possible airport and so on by using anargodb graph database.
 
