@@ -1,6 +1,13 @@
 # flightsearchapp
 restful API, node express, arangodb, docker
 
+Hi! This is a small demo of creating a web endpoint with anargodb via anargojs.
+A simple UI application has been implemented for interacting with it.
+The dataset include flights and airports of the states in JAN, 2008.
+The aim is to find the fastest route from a departure airport to a destination airport on a specific day.
+In this implementation, the specific day is determined by the local datetime of the departure datetime of the first flight.
+This means that the arrival date can be different eg. the next day.
+
 Install Docker if there is no.
 
 ## Install instruction
@@ -43,4 +50,10 @@ For testing the curl, the app works fine if it is built on local machine.Like:
 ```
 curl -X POST http://localhost:3000/api -H "Content-Type: application/json" -d '{"from":"JFK", "to":"LAX","date": "2008/01/01"}'
 ```
+
+## FAA DELAY AIRPORT API
+
+There is a getDelay function implemented in the DataServices.js.
+
+It can be further integrated with the api.js by reading the delay of the airports by finding alternative routes due to serious delay, requery to find a route to nearest possible airport and so on by using anargodb graph database.
 
