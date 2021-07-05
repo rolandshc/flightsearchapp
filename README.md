@@ -26,9 +26,9 @@ Install Docker if there is no.
 3. Browse localhost:8529, login with user: root, password:Testing123, create collection "airports" of type "document", create collection "flights" of type "edge"
 
 4. import flight.csv, airports.csv to the collections, in Shell (replace the id of arangodb container running):
-docker exec -ti {docker-container-id} arangoimp --file airports.csv --collection airports --type csv --server.username root --server.database _system --server.authentication true --server.endpoint http+tcp://127.0.0.1:8529
+```docker exec -ti {docker-container-id} arangoimp --file airports.csv --collection airports --type csv --server.username root --server.database _system --server.authentication true --server.endpoint http+tcp://127.0.0.1:8529```
 
-docker exec -ti {docker-container-id} arangoimp --file flights.csv --collection flights --type csv --server.username root --server.database _system --server.authentication true --server.endpoint http+tcp://127.0.0.1:8529
+```docker exec -ti {docker-container-id} arangoimp --file flights.csv --collection flights --type csv --server.username root --server.database _system --server.authentication true --server.endpoint http+tcp://127.0.0.1:8529```
 
 ## How to use
 
