@@ -8,7 +8,7 @@ router.get('/', function (req, res, next) {
   try {
     const requestOptions = {
       url: 'http://localhost:3000/api',
-      method: 'GET',
+      method: 'POST',
       json: req.query,
       qs: {
       }

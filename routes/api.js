@@ -3,12 +3,15 @@ var router = express.Router();
 var service = require('../services/DataServices.js');
 
 
-router.get('/', async function (req, res) {
+router.post('/', function (req, res) {
   req.setTimeout(360000);
   try {
-    const from = "airports/" + req.body["from"];
-    const to = "airports/" + req.body["to"];
-    const dateString = req.body["date"].replace(/\//g, '-');
+    const from = "airports/" + req.body["from"].toString();
+    const to = "airports/" + req.body["to"].toString();
+    console.log(" req.body");
+    console.log(from);
+    console.log(to);
+    const dateString = "" + req.body["date"].toString().replace(/\//g, '-');
     const date = dateString.replace(/(^|-)0+/g, "$1").split("-");
     console.log("SEARCH FOR FLIGHT FROM " + from + " TO " + to + " ON " + dateString);
     const year = parseInt(date[0]);
